@@ -15,55 +15,73 @@
 			<a href="#settings">Settings</a>
 		</nav>
 		<main id="app">
-			<div class="page-view" id="home-view">
-				<h1>Game</h1>
-				<p>hey hey hey check it out, this here's a cool game</p>
-				<!-- <div id="recent-project">
+		<div class="page-view" id="home-view">
+			<h1>Game</h1>
+			<p>hey hey hey check it out, this here's a cool game</p>
+			<!-- <div id="recent-project">
 					My most recent project is <a href="#" id="recent-project-name"></a>
-				</div>
-				<div id="current-position">
+			</div>
+			<div id="current-position">
 					My current position is <span id="current-position-name"></span>
-				</div> -->
-			</div>
-			<div class="page-view" id="play-view">
-				<h1>the game will be located here</h1>
-				
-				<div id="work-experience-list"></div>
-			</div>
-			<div class="page-view" id="leaderboards-view">
-				<h1>leaderboards</h1>
-				<div id="project-list"></div>
-			</div>
-			<div class="page-view" id="settings-view">
-				<h1>some sort of game settings</h1>
-				
-			</div>
+			</div> -->
+			
+		</div>
+		<div class="page-view" id="play-view">
+			<table border="0" width="350" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><img border="0" src="roulette.jpg" width="152" height="216"></td>
+					<td>
+						<form name="fire">
+							Load yer bullets, partner.<br> (1-6):<br><br><input name="bullets" type="text" size=3 value=1><br />
+							<p>
+							<input name="message" type="button" value="Pull Trigger!" onClick="fireit()">
+							</p>
+						</form>
+						<script>
+						function fireit(){
+						var theone=Math.floor(Math.random()*6)
+						if (theone<=document.fire.bullets.value-1)
+						alert("Bang. You\'re dead!")
+						else{
+						document.fire.message.value="Whew. Got lucky!"
+						setTimeout("document.fire.message.value='Play Roulette'",500)
+						}
+						}
+						</script>
+					</td>
+				</tr>
+			</table>
+			
+			<div id="work-experience-list"></div>
+		</div>
+		<div class="page-view" id="leaderboards-view">
+			<h1>leaderboards</h1>
+			<div id="project-list"></div>
+		</div>
+		<div class="page-view" id="settings-view">
+			<h1>some sort of game settings</h1>
+			
+		</div>
 		</main>
-
 		<script type="text/html" id="project-template">
 			<div class="project">
-				<h3>
-					<a href="<%= url %>"><%= name %></a>
-				</h3>
-				<p><%= description %></p>
+					<h3>
+						<a href="<%= url %>"><%= name %></a>
+					</h3>
+					<p><%= description %></p>
 			</div>
 		</script>
-
 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
 		<script type="text/javascript" src="bower_components/backbone/backbone.js"></script>
-
 		<script type="text/javascript" src="scripts/models/ProjectModel.js"></script>
-
 		<script type="text/javascript" src="scripts/collections/ProjectsCollection.js"></script>
-
 		<script type="text/javascript" src="scripts/views/IndividualProjectView.js"></script>
 		<script type="text/javascript" src="scripts/views/HomeView.js"></script>
 		<script type="text/javascript" src="scripts/views/PlayView.js"></script>
 		<script type="text/javascript" src="scripts/views/LeaderboardsView.js"></script>
 		<script type="text/javascript" src="scripts/views/SettingsView.js"></script>
 		<script type="text/javascript" src="scripts/views/AppView.js"></script>
-
 		<script type="text/javascript" src="scripts/main.js"></script>
 	</body>
 </html>

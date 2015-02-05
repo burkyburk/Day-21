@@ -1,7 +1,6 @@
 var AppView = Backbone.View.extend({
 	el: '#app',
 	initialize: function() {
-		console.log(ProjectsCollection);
 		this.projects = new ProjectsCollection();
 
 		this.homeView = new HomeView({
@@ -28,7 +27,6 @@ var AppView = Backbone.View.extend({
 			},
 
 			home: function() {
-				console.log('home');
 				self.hideAllPages();
 				self.homeView.$el.show();
 			},

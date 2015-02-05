@@ -1,10 +1,8 @@
-var ListModel = Backbone.Model.extend({
+var ProjectModel = Backbone.Model.extend({
 	defaults: {
-		lastName: '',
-		
-	},
-	getFullName: function() {
-
-		return this.get('lastName');
+		id: null,
+		name: null,
+		url: null,
+		description: null
 	}
 });

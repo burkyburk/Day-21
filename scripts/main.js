@@ -1,4 +1,3 @@
 $(document).ready(function() {
-	var theRealAppView = new AppView();
+	var appView = new AppView();
 });
-

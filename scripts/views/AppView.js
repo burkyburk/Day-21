@@ -1,50 +1,60 @@
 var AppView = Backbone.View.extend({
-  el: '#app-view',
-  initialize: function() {
-    console.log('Initialize AppView');
+	el: '#app',
+	initialize: function() {
+		console.log(ProjectsCollection);
+		this.projects = new ProjectsCollection();
 
-    _.bindAll(
-      this,
-      'render',
-      'onSubmitButtonClick',
-      'onListAdded'
-    );
+		this.homeView = new HomeView({
+			projects: this.projects
+		});
+		this.playView = new PlayView({
+			projects: this.projects
+		});
+		this.settingsView = new SettingsView({
+			projects: this.projects
+		});
+		this.leaderboardsView = new LeaderboardsView({
+			projects: this.projects
+		});
 
-    
-    this.$lastName = $('#last-name');
-    this.$submitButton = $('#submit-button');
-    this.$listbox = $('#list-box');
-    this.list = new TodoListCollection();
+		var self = this;
 
-    this.$submitButton.on('click', this.onSubmitButtonClick);
+		var Router = Backbone.Router.extend({
+			routes: {
+				'home': 	'home',
+				'play': 	'play',
+				'leaderboards': 'leaderboards',
+				'settings': 	'settings'
+			},
 
-    this.list.on('add', this.onListAdded);
+			home: function() {
+				console.log('home');
+				self.hideAllPages();
+				self.homeView.$el.show();
+			},
 
+			play: function() {
+				self.hideAllPages();
+				self.playView.$el.show();
+			},
 
-  },
+			leaderboards: function() {
+				self.hideAllPages();
+				self.leaderboardsView.$el.show();
+			},
 
-  render: function() {
-    
-   
-  },
+			settings: function() {
+				self.hideAllPages();
+				self.settingsView.$el.show();
+			}
+		});
 
-  onSubmitButtonClick: function() {
-    console.log('onSubmitButtonClick');
+		var appRouter = new Router();
 
-    this.list.add({
-      
-      lastName: this.$lastName.val(),
-      
-    });
-    console.log(this.list);
+		Backbone.history.start();
+	},
 
-  },
-
-  onListAdded: function(ListModel) {
-    console.log(ListModel.attributes);
-    console.log(ListModel.getTodoList());
-    var newListView = new ListView({model: ListModel});
-    this.$listbox.append(newListView.$el);
-  }
- 
+	hideAllPages: function() {
+		$('.page-view').hide();
+	}
 });

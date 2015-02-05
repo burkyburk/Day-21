@@ -2,10 +2,31 @@
 	display: none;
 }
 
-.form label {
-	display: block;
+body {
+	background-color: rgb(237,222,181);
+}
+nav {
+	font-size: 22px;
+	font-family: helvetica;
+	background-color: black;
+	padding: 4px 0 0 8px;
+	height: 25px;
+}
+a {	color: white;
+	text-decoration: none;
+}
+a:hover {
+	color:rgb(167,153,116);
 }
 
-#admin-view {
-	background-color: red;
+#play-view {
+	background-color: rgb(167,153,116);
+}
+
+#leaderboards-view {
+	background-color: rgb(167,153,116);
+}
+
+#settings-view {
+	background-color: rgb(167,153,116);
 }

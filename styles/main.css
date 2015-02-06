@@ -3,12 +3,12 @@
 }
 
 body {
-	background-color: rgb(237,222,181);
+	background-color: #FBFFE6;
 }
 nav {
 	font-size: 22px;
 	font-family: helvetica;
-	background-color: black;
+	background-color: #523E33;
 	padding: 4px 0 0 8px;
 	height: 25px;
 }
@@ -16,10 +16,10 @@ a {	color: white;
 	text-decoration: none;
 }
 a:hover {
-	color:rgb(237,222,181);
+	color:#FBFFE6;
 }
 
-#play-view {
+/*#play-view {
 	background-color: rgb(167,153,116);
 }
 
@@ -29,4 +29,4 @@ a:hover {
 
 #settings-view {
 	background-color: rgb(167,153,116);
-}
+}*/

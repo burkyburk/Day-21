@@ -27,13 +27,18 @@ var AppView = Backbone.View.extend({
 				'play': 	'play',
 				'leaderboards': 'leaderboards',
 				'settings': 	'settings',
-				"*actions": 'loading',
+				'': 'loading',
 			},
 
 			loading: function() {
 			console.log('loading screen');
 			self.hideAllPages();
 			self.loadingView.$el.show();
+			setTimeout(function() {
+				self.loadingView.$el.hide();
+				self.homeView.$el.show();
+			}, 4000);
+
 		},
 
 			home: function() {
@@ -64,5 +69,6 @@ var AppView = Backbone.View.extend({
 
 	hideAllPages: function() {
 		$('.page-view').hide();
+
 	}
 });

@@ -9,17 +9,23 @@
 		<link rel="stylesheet" href="styles/main.css">
 	</head>
 	<body>
+		<main id="app">
+		<section id="loading-screen" class="page-view">
+				<h1>Loading... </h1>
+			</section>
+
 		<nav id="navigation">
 			<a href="#home">Home</a>
 			<a href="#play">Play</a>
 			<a href="#leaderboards">Leaderboards</a>
 			<a href="#settings">Settings</a>
 		</nav>
-		<main id="app">
+
+
 		<div class="page-view" id="home-view">
 			<h1>Welcome</h1>
 			<p>This here's a cool game site.</p>
-		
+
 		</div>
 		<div class="page-view" id="play-view">
 			<table border="0" width="350" cellspacing="0" cellpadding="0">
@@ -46,7 +52,7 @@
 					</td>
 				</tr>
 			</table>
-			
+
 			<div id="work-experience-list"></div>
 		</div>
 		<div class="page-view" id="leaderboards-view">
@@ -55,7 +61,7 @@
 		</div>
 		<div class="page-view" id="settings-view">
 			<h1>some sort of game settings</h1>
-			
+
 		</div>
 		</main>
 		<script type="text/html" id="project-template">
@@ -72,6 +78,7 @@
 		<script type="text/javascript" src="scripts/models/ProjectModel.js"></script>
 		<script type="text/javascript" src="scripts/collections/ProjectsCollection.js"></script>
 		<script type="text/javascript" src="scripts/views/IndividualProjectView.js"></script>
+		<script type="text/javascript" src="scripts/views/LoadingView.js"></script>
 		<script type="text/javascript" src="scripts/views/HomeView.js"></script>
 		<script type="text/javascript" src="scripts/views/PlayView.js"></script>
 		<script type="text/javascript" src="scripts/views/LeaderboardsView.js"></script>

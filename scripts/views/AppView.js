@@ -2,7 +2,9 @@ var AppView = Backbone.View.extend({
 	el: '#app',
 	initialize: function() {
 		this.projects = new ProjectsCollection();
-
+		this.loadingView = new LoadingView({
+			projects: this.projects
+		});
 		this.homeView = new HomeView({
 			projects: this.projects
 		});
@@ -20,11 +22,19 @@ var AppView = Backbone.View.extend({
 
 		var Router = Backbone.Router.extend({
 			routes: {
+				'loading': 'loading',
 				'home': 	'home',
 				'play': 	'play',
 				'leaderboards': 'leaderboards',
-				'settings': 	'settings'
+				'settings': 	'settings',
+				"*actions": 'loading',
 			},
+
+			loading: function() {
+			console.log('loading screen');
+			self.hideAllPages();
+			self.loadingView.$el.show();
+		},
 
 			home: function() {
 				self.hideAllPages();

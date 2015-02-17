@@ -1,91 +1,116 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-		<title>Day 21- Game</title>
-		<link rel="stylesheet" href="styles/reset.css">
-		<link rel="stylesheet" href="styles/main.css">
-	</head>
-	<body>
-		<main id="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+  <title>Day 21- Game</title>
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
 
+<body>
+  <main id="app">
+    <section id="loading-screen" class="page-view">
+      <h1>Loading... </h1>
+    </section>
 
+    <div class="page-view" id="home-view">
+      <nav id="navigation">
+        <a href="#home">Home</a>
+        <a href="#play">Play</a>
+        <a href="#leaderboards">Leaderboards</a>
+        <a href="#settings">Settings</a>
+      </nav>
 
-		<section id="loading-screen" class="page-view">
-				<h1>Loading... </h1>
-			</section>
+      <h1>Welcome</h1>
+      <p>This here's a cool game site.</p>
 
-		<div class="page-view" id="home-view">
-			<nav id="navigation">
-				<a href="#home">Home</a>
-				<a href="#play">Play</a>
-				<a href="#leaderboards">Leaderboards</a>
-				<a href="#settings">Settings</a>
-			</nav>
+    </div>
+    <div class="page-view" id="play-view">
+      <nav id="navigation">
+        <a href="#home">Home</a>
+        <a href="#play">Play</a>
+        <a href="#leaderboards">Leaderboards</a>
+        <a href="#settings">Settings</a>
+      </nav>
+      <table border="0" width="350" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <img border="0" src="roulette.jpg" width="152" height="216">
+          </td>
+          <td>
+            <form name="fire">
+              Load yer bullets, partner.
+              <br> (1-6):
+              <br>
+              <br>
+              <input name="bullets" type="text" size=3 value=1>
+              <br />
+              <p>
+                <input name="message" type="button" value="Pull Trigger!" onClick="fireit()">
+              </p>
+            </form>
+            <script>
+              function fireit() {
+              	var theone = Math.floor(Math.random() * 6)
+              	if (theone <= document.fire.bullets.value - 1)
+              		alert("Bang. You\'re dead!")
+              	else {
+              		document.fire.message.value = "Whew. Got lucky!"
+              		setTimeout("document.fire.message.value='Play Roulette'", 500)
+              	}
+              }
+            </script>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="page-view" id="leaderboards-view">
+      <nav id="navigation">
+        <a href="#home">Home</a>
+        <a href="#play">Play</a>
+        <a href="#leaderboards">Leaderboards</a>
+        <a href="#settings">Settings</a>
+      </nav>
+      <h1>leaderboards</h1>
+    </div>
+    <div class="page-view" id="settings-view">
+      <nav id="navigation">
+        <a href="#home">Home</a>
+        <a href="#play">Play</a>
+        <a href="#leaderboards">Leaderboards</a>
+        <a href="#settings">Settings</a>
+      </nav>
+      <h1>some sort of game settings</h1>
 
-			<h1>Welcome</h1>
-			<p>This here's a cool game site.</p>
+    </div>
+  </main>
+  <script type="text/html" id="project-template">
+    <div class="project">
+      <h3>
+        <a href="<%= url %>">
+          <%=n ame %>
+        </a>
+      </h3>
+      <p>
+        <%=d escription %>
+      </p>
+    </div>
+  </script>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
+  <script type="text/javascript" src="bower_components/backbone/backbone.js"></script>
+  <script type="text/javascript" src="scripts/models/ProjectModel.js"></script>
+  <script type="text/javascript" src="scripts/collections/ProjectsCollection.js"></script>
+  <script type="text/javascript" src="scripts/views/IndividualProjectView.js"></script>
+  <script type="text/javascript" src="scripts/views/LoadingView.js"></script>
+  <script type="text/javascript" src="scripts/views/HomeView.js"></script>
+  <script type="text/javascript" src="scripts/views/PlayView.js"></script>
+  <script type="text/javascript" src="scripts/views/LeaderboardsView.js"></script>
+  <script type="text/javascript" src="scripts/views/SettingsView.js"></script>
+  <script type="text/javascript" src="scripts/views/AppView.js"></script>
+  <script type="text/javascript" src="scripts/main.js"></script>
+</body>
 
-		</div>
-		<div class="page-view" id="play-view">
-			<table border="0" width="350" cellspacing="0" cellpadding="0">
-				<tr>
-					<td><img border="0" src="roulette.jpg" width="152" height="216"></td>
-					<td>
-						<form name="fire">
-							Load yer bullets, partner.<br> (1-6):<br><br><input name="bullets" type="text" size=3 value=1><br />
-							<p>
-							<input name="message" type="button" value="Pull Trigger!" onClick="fireit()">
-							</p>
-						</form>
-						<script>
-						function fireit(){
-						var theone=Math.floor(Math.random()*6)
-						if (theone<=document.fire.bullets.value-1)
-						alert("Bang. You\'re dead!")
-						else{
-						document.fire.message.value="Whew. Got lucky!"
-						setTimeout("document.fire.message.value='Play Roulette'",500)
-						}
-						}
-						</script>
-					</td>
-				</tr>
-			</table>
-
-			<div id="work-experience-list"></div>
-		</div>
-		<div class="page-view" id="leaderboards-view">
-			<h1>leaderboards</h1>
-			<div id="project-list"></div>
-		</div>
-		<div class="page-view" id="settings-view">
-			<h1>some sort of game settings</h1>
-
-		</div>
-		</main>
-		<script type="text/html" id="project-template">
-			<div class="project">
-					<h3>
-						<a href="<%= url %>"><%= name %></a>
-					</h3>
-					<p><%= description %></p>
-			</div>
-		</script>
-		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-		<script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
-		<script type="text/javascript" src="bower_components/backbone/backbone.js"></script>
-		<script type="text/javascript" src="scripts/models/ProjectModel.js"></script>
-		<script type="text/javascript" src="scripts/collections/ProjectsCollection.js"></script>
-		<script type="text/javascript" src="scripts/views/IndividualProjectView.js"></script>
-		<script type="text/javascript" src="scripts/views/LoadingView.js"></script>
-		<script type="text/javascript" src="scripts/views/HomeView.js"></script>
-		<script type="text/javascript" src="scripts/views/PlayView.js"></script>
-		<script type="text/javascript" src="scripts/views/LeaderboardsView.js"></script>
-		<script type="text/javascript" src="scripts/views/SettingsView.js"></script>
-		<script type="text/javascript" src="scripts/views/AppView.js"></script>
-		<script type="text/javascript" src="scripts/main.js"></script>
-	</body>
 </html>

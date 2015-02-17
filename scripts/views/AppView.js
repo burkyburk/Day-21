@@ -40,7 +40,6 @@ var AppView = Backbone.View.extend({
 			}, 4000);
 
 		},
-
 			home: function() {
 				self.hideAllPages();
 				self.homeView.$el.show();
@@ -49,7 +48,7 @@ var AppView = Backbone.View.extend({
 			play: function() {
 				self.hideAllPages();
 				self.playView.$el.show();
-			},
+						},
 
 			leaderboards: function() {
 				self.hideAllPages();

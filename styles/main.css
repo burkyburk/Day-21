@@ -18,3 +18,7 @@ a {	color: white;
 a:hover {
 	color:#FBFFE6;
 }
+h1	{
+	font-family:helvetica;
+	font-size:20px;
+}
